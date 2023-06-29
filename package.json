@@ -1,0 +1,37 @@
+{
+  "name": "nextjs-blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:debug": "cross-env NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "post": "esno ./scripts/createPost.ts",
+    "read-posts": "esno ./scripts/readPosts.ts",
+    "update-tags": "esno ./scripts/getTagsTree.ts"
+  },
+  "dependencies": {
+    "@types/node": "20.3.2",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "date-fns": "^2.30.0",
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.7",
+    "gray-matter": "^4.0.3",
+    "next": "13.4.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remark": "^14.0.3",
+    "remark-html": "^15.0.2",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.3.0",
+    "cross-env": "^7.0.3",
+    "esno": "^0.16.3",
+    "luxon": "^3.3.0",
+    "sass": "^1.63.6"
+  }
+}

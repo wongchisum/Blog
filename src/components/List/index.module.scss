@@ -1,0 +1,30 @@
+.list {
+    .listItem {
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+        background-color: #fff;
+        border-radius: 6px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
+    .title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 2.4;
+    }
+    .content {
+        font-size: 16px;
+        line-height: 1.8;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+    }
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.8;
+    }
+}
