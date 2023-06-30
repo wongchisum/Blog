@@ -72,7 +72,6 @@ export const  readPosts = async () =>  {
   const targetDir = path.join(process.cwd(), "posts");
   try {
     const data = await readMarkdownFiles(targetDir)
-    console.log("posts data>>",data)
     return data
   } catch(error) {
     console.log("error>>",error)

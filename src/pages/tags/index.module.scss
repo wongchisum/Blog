@@ -1,0 +1,20 @@
+.tags {
+    padding: 16px 16px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    .tagTree {
+        line-height: 2;
+        .name {
+            font-size: 20px;
+        }
+        .children {
+            margin-left: 24px;
+            display: flex;
+            .name {
+                margin-right: 24px;
+            }
+        }
+    }
+
+}

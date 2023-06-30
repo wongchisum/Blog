@@ -9,3 +9,99 @@ html,body {
   background-color: #eee;
   color: #999;
 }
+
+body {
+  background-image: url("../../public/images/tetons-at-night.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+#__next {
+  height: 100%;
+  overflow: auto;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+html, body {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.article-content {
+    color: #666;
+    line-height: 1.75;
+    font-size: 18px;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1em;
+  margin-bottom: .6em;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+hr {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+pre {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  white-space: pre-wrap;
+  /* background-color: #3a3a3a; */
+  background-color: #6E7783;
+  padding: 12px 12px;
+  border-radius: 6px;
+  color: #eee;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  background: #b3bccc;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #eee;
+  /* background-color: #fff; */
+}

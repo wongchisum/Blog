@@ -2,7 +2,7 @@
  * @Author: wangzhisen
  * @Date: 2023-06-29 16:00:54
  * @Last Modified by: wangzhisen
- * @Last Modified time: 2023-06-29 17:02:28
+ * @Last Modified time: 2023-06-30 10:46:34
  *
  * 通过解析命令行参数，去创建对应的markdown文件
  *
@@ -12,17 +12,21 @@ import { DateTime } from "luxon";
 import path from "path";
 import fs from "fs";
 
-const createPost = (title: string, tags: string, dir: string) => {
-  const date = DateTime.now().toFormat("yyyy-MM-dd-HH-mm-ss"); // 获取当前时间
+const createPost = (title: string, dir: string) => {
+  const date = DateTime.now().toFormat("yyyy-MM-dd HH:mm:ss"); // 获取当前时间
 
   const content = `---
-  title: ${title}
-  tags: ${tags}
-  date: ${date}
+title: '${title}'
+date: '${date}'
 ---
   
   <!-- 在此处编写文章内容 -->`;
-  const fileName = `${date}-${title.replace(/ /g, "-")}.md`; // 生成文件名
+  const replaceReg = /[\s:]/g;
+  // const fileName = `${date.replace(replaceReg, "-")}-${title.replace(
+  //   replaceReg,
+  //   "-"
+  // )}.md`; // 生成文件名
+  const fileName = `${title.replace(replaceReg, "-")}.md`; // 生成文件名
   const filePath = `${dir}/${fileName}`;
   fs.writeFile(filePath, content, "utf-8", (err) => {
     if (err) {
@@ -34,9 +38,9 @@ const createPost = (title: string, tags: string, dir: string) => {
 };
 
 // 解析命令行参数
-const [title = "untitled", tags = "未分类"] = process.argv.slice(2);
+const [title = "untitled"] = process.argv.slice(2);
 
 // 创建在posts目录下
 const targetDir = path.join(process.cwd(), "posts");
 
-createPost(title, tags, targetDir);
+createPost(title, targetDir);

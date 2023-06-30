@@ -2,12 +2,14 @@
  * @Author: wangzhisen
  * @Date: 2023-06-29 18:34:11
  * @Last Modified by: wangzhisen
- * @Last Modified time: 2023-06-29 19:18:21
+ * @Last Modified time: 2023-06-30 13:44:05
  *
  * 展示所有标签
  */
-import { getTagsTree, TreeNode } from "../../../scripts/getTagsTree";
+// import { getTagsTree, TreeNode } from "../../../scripts/getTagsTree";
 import Layout from "@/components/Layout";
+import { getTagsTree } from "@/lib/post";
+import styles from './index.module.scss';
 
 export async function getStaticProps() {
   const tags = await getTagsTree();
@@ -19,41 +21,40 @@ export async function getStaticProps() {
   };
 }
 
-type TagsProps = {
-  tags: TreeNode[];
+type TagItem = {
+  name: string;
+  uuid: string;
+  children: TagItem[];
 };
 
-type TagProps = {
-    data:TreeNode
-}
+type TagsProps = {
+  data: TagItem[];
+};
 
-const TagNode = ({name}:{name:string}) => {
-    console.log("name>>",name)
-    return <div>{name}</div>
-}
-
-const TagTree = ({data}:TagProps[]) => {
+const TagsTree = ({ data }: TagsProps) => {
+  if (Array.isArray(data)) {
     return data.map((item) => {
-        console.log("item>>",item)
-        if (item.children && item.children.length) {
-            return (
-                <>
-                <TagNode {...item}/>
-                <TagTree data={item.children}/>
-                </>
-            )
-        } else {
-            return <TagNode {...item}/>
-        }
-    })
-    
-}
+      if (Array.isArray(item.children)) {
+        return (
+          <div className={styles.tagTree} key={item.uuid}>
+            <div key={item.uuid} className={styles.name}>{item.name}</div>
+            <div className={styles.children}>
+              <TagsTree data={item.children} />
+            </div>
+          </div>
+        );
+      }
+      return <div key={item.uuid}>{item.name}</div>;
+    });
+  }
+};
 
-export default function Tags({ tags }: TagsProps) {
-  return <Layout>
-    <div>{JSON.stringify(tags, null, 4)}</div>
-    {
-        Array.isArray(tags) && <TagTree  data={tags}/>
-    }
-    </Layout>;
+export default function Tags({ tags }: any) {
+  return (
+    <Layout>
+      <div className={styles.tags}>
+        <TagsTree data={tags} />
+      </div>
+    </Layout>
+  );
 }

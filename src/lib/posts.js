@@ -5,7 +5,6 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 const postsDirectory = path.resolve(process.cwd(), "posts")
-console.log("postsDirectory>>",postsDirectory)
 /**
  * 获取posts所有文件
  * @returns 

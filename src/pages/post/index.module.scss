@@ -1,0 +1,22 @@
+.post {
+ background-color: #fff;   
+ border-radius: 6px;
+ box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+ .postBody {
+   .title {
+    font-size: 4.5em;
+    text-align: center;
+    font-weight: 600;
+   }
+ }
+ .info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+ }
+
+ .container {
+  background-color: #ECEFF1;
+  padding: 16px 40px;
+ }
+}
